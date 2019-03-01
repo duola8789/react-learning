@@ -8,9 +8,10 @@ import Demo1 from './components/demo1'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
+// 路由设置
 export default class RouterContainer extends React.Component {
   render() {
-    return  (
+    return (
       <Router>
         <div className="container">
           <nav>
@@ -18,8 +19,8 @@ export default class RouterContainer extends React.Component {
               <Link to="/" />
             </div>
           </nav>
-          <Route exact path="/" component={App} />
-          <Route path="/a/" component={Demo1} />
+          <Route exact path="/" component={ App } />
+          <Route path="/demo1/" component={ Demo1 } />
         </div>
       </Router>
     )

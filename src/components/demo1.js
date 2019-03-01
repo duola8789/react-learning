@@ -11,7 +11,6 @@ export default class Demo1 extends Component {
       number: 123
     }
   }
-
   render() {
     return (
       <div>
