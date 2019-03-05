@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import Demo1 from './components/demo1'
+import Demo1 from './components/demo1/demo1'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -20,7 +20,7 @@ export default class RouterContainer extends React.Component {
             </div>
           </nav>
           <Route exact path="/" component={ App } />
-          <Route path="/demo1/" component={ Demo1 } />
+          <Route path="/demo1/" component={ Demo1 }/>
         </div>
       </Router>
     )

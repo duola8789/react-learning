@@ -10,7 +10,7 @@ class App extends Component {
         <div className={styles['App-header']}>
           <img src={logo} className={styles['App-logo']} alt="logo"/>
           <ul className={styles.list}>
-            <li><Link to="/demo1">Demo1 -- Redux入门</Link></li>
+            <li><Link to="/demo1">Demo1 -- Redux入门（不涉及Router）</Link></li>
           </ul>
         </div>
       </div>
