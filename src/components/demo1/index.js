@@ -2,12 +2,7 @@
  * Created by zh on 2019/3/1.
  */
 import React, { Component } from 'react';
-
-import { createStore } from "redux";
-import reducer from "../../reducers/index";
-
-// 引入Redux
-const store = createStore(reducer);
+import store from '../../store/'
 
 const Count = ({ value, onIncrement, onDecrement, onChange }) => {
   return (
@@ -20,13 +15,12 @@ const Count = ({ value, onIncrement, onDecrement, onChange }) => {
   )
 };
 
-export default class Demo1 extends Component {
+export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       val1: store.getState().val1,
-      val2: store.getState().val2,
-      val3: store.getState().reducer3
+      val2: store.getState().val2
     }
   }
 
@@ -43,7 +37,7 @@ export default class Demo1 extends Component {
     store.subscribe(() => {
       this.setState({
         val1: store.getState().val1
-      })
+      });
     });
 
     return (

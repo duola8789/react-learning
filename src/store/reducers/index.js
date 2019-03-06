@@ -3,8 +3,10 @@
  */
 import { combineReducers } from 'redux'
 
+import defaultImage from '../../assets/images/default.jpg'
+
 const reducer1 = (state = 0, action) => {
-  console.log('reducer1 was called with state', state, 'and action', action);
+  // console.log('reducer1 was called with state', state, 'and action', action);
   switch (action.type) {
     case 'INCREMENT': {
       return +state + 1
@@ -22,21 +24,35 @@ const reducer1 = (state = 0, action) => {
 };
 
 const reducer2 = (state = { test: 'go' }, action) => {
-  if (action.type === 'INCREMENT') {
-    console.log('reducer2 was called with state', state, 'and action', action);
+  if (action.type === 'SEND_QUESTION') {
+    // console.log('reducer2 was called with state', state, 'and action', action);
   }
   return state
 };
 
-const reducer3 = function (state = {}, action) {
-  console.log('reducer_3 was called with state', state, 'and action', action)
-
+const reducer3 = function (state = { status: '', answer: { msg: '', image: defaultImage}}, action) {
+  // console.log('reducer_3 was called with state', state, 'and action', action);
   switch (action.type) {
-    case 'SAY_SOMETHING':
+    case 'SAY_SOMETHING': {
       return {
         ...state,
         message: action.value
       };
+    }
+    case 'SEND_QUESTION' : {
+      return {
+        ...state,
+        status: action.status,
+        question: action.question,
+      }
+    }
+    case 'RECEIVE_ANSWER' : {
+      return {
+        ...state,
+        status: action.payload ? action.payload.status : action.status,
+        answer: action.payload ? action.payload.answer : action.answer,
+      }
+    }
     default:
       return state;
   }
@@ -46,11 +62,10 @@ const reducer3 = function (state = {}, action) {
 const reducer = combineReducers({
   val1: reducer1,
   val2: reducer2,
-  reducer3
+  val3: reducer3
 });
 
 export default reducer
-
 
 /**
  * createStore的简单实现
@@ -95,3 +110,5 @@ export default reducer
   }, {})
 }
  */
+
+

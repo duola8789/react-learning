@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import Demo1 from './components/demo1/demo1'
+import Demo1 from './components/demo1/index'
+import Demo2 from './components/demo2/index'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -21,6 +22,7 @@ export default class RouterContainer extends React.Component {
           </nav>
           <Route exact path="/" component={ App } />
           <Route path="/demo1/" component={ Demo1 }/>
+          <Route path="/demo2/" component={ Demo2 }/>
         </div>
       </Router>
     )
