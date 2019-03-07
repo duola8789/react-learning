@@ -7,9 +7,9 @@ import store from '../../store/'
 const Count = ({ value, onIncrement, onDecrement, onChange }) => {
   return (
     <div>
-      <button onClick={ onIncrement }>+</button>
+      <button onClick={ onIncrement }> + </button>
       <span>Now, the count is { value }</span>
-      <button onClick={ onDecrement }>-</button>
+      <button onClick={ onDecrement }> - </button>
       <input type="number" onInput={ onChange } />
     </div>
   )
@@ -19,14 +19,12 @@ export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      val1: store.getState().val1,
-      val2: store.getState().val2
+      val1: store.getState().val1
     }
   }
 
   render() {
     const value = this.state.val1;
-    const value2 = this.state.val2;
 
     const ACTIONS = {
       INCREMENT: 'INCREMENT',
@@ -42,13 +40,13 @@ export default class Index extends Component {
 
     return (
       <Count value={ value }
-             value2={ value2 }
              onIncrement={ () => store.dispatch({ type: ACTIONS.INCREMENT }) }
              onDecrement={ () => store.dispatch({ type: ACTIONS.DECREMENT }) }
              onChange={ (e) => store.dispatch({
                type: ACTIONS.CHANGE,
                payload: e.target.value
-             }) } />
+             }) }
+      />
     )
   }
 };

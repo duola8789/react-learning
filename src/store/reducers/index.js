@@ -23,14 +23,8 @@ const reducer1 = (state = 0, action) => {
   }
 };
 
-const reducer2 = (state = { test: 'go' }, action) => {
-  if (action.type === 'SEND_QUESTION') {
-    // console.log('reducer2 was called with state', state, 'and action', action);
-  }
-  return state
-};
 
-const reducer3 = function (state = { status: '', answer: { msg: '', image: defaultImage}}, action) {
+const reducer3 = function (state = { status: '', answer: { msg: '', image: defaultImage } }, action) {
   // console.log('reducer_3 was called with state', state, 'and action', action);
   switch (action.type) {
     case 'SAY_SOMETHING': {
@@ -58,11 +52,28 @@ const reducer3 = function (state = { status: '', answer: { msg: '', image: defau
   }
 };
 
+const reducer4 = (state = { count: 0 }, action) => {
+  switch (action.type) {
+    case 'INCREMENT' : {
+      return {
+        count: state.count + 1
+      }
+    }
+    case 'DECREMENT' : {
+      return {
+        count: state.count - 1
+      }
+    }
+    default: {
+      return state
+    }
+  }
+};
 
 const reducer = combineReducers({
   val1: reducer1,
-  val2: reducer2,
-  val3: reducer3
+  val3: reducer3,
+  val4: reducer4,
 });
 
 export default reducer

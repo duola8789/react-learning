@@ -10,7 +10,13 @@ import reducer from "./reducers/index";
 // 使用redux-promise中间件，使dispatch可以接受Promise作为参数
 import promiseMiddleware from 'redux-promise'
 
+// 自定义的log中间件
+const logMiddleware = ({dispatch, getState}) => (next) => (action) => {
+  console.log('logMiddleware action received: ', action);
+  return next(action)
+};
+
 // 创建Store
-const store = createStore(reducer, applyMiddleware(promiseMiddleware));
+const store = createStore(reducer, applyMiddleware(logMiddleware, promiseMiddleware));
 
 export default store;
