@@ -87,10 +87,16 @@ export default class Index extends Component {
     });
 
     // 发出异步Action
-    store.dispatch(createAction('RECEIVE_ANSWER')(Request.demo2.getAnswer({ question }).then(v => ({
-      status: '',
-      answer: v
-    }))));
+    store.dispatch(
+      createAction('RECEIVE_ANSWER')(
+        // Promise的then函数返回值才是createAction的第二个参数
+        Request.demo2.getAnswer({ question }).then(v => ({
+            status: '',
+            answer: v
+          })
+        )
+      )
+    );
   }
 
 
@@ -109,14 +115,14 @@ export default class Index extends Component {
 
     return (
       <div>
-        <input placeholder="input your question..." value={this.state.questionInput}
-               onChange={(e) => this.setState({ questionInput: e.target.value })} />
-        <button onClick={() => this.sendQuestion()}>send</button>
-        {status}
-        <p>The question is {question}</p>
-        <p>The answer is {answer.answer}</p>
-        <p className={style.imageContainer}>
-          <img src={answer.image} alt="answer" className={style.image} />
+        <input placeholder="input your question..." value={ this.state.questionInput }
+               onChange={ (e) => this.setState({ questionInput: e.target.value }) } />
+        <button onClick={ () => this.sendQuestion() }>send</button>
+        { status }
+        <p>The question is { question }</p>
+        <p>The answer is { answer.answer }</p>
+        <p className={ style.imageContainer }>
+          <img src={ answer.image } alt="answer" className={ style.image } />
         </p>
       </div>
     )
