@@ -10,6 +10,7 @@ import Demo3 from './components/demo3/index'
 import Demo4 from './components/demo4/index'
 import Demo5 from './components/demo5/index'
 import Demo6 from './components/demo6/index'
+import Demo7 from './components/demo7/index'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
@@ -34,6 +35,7 @@ export default class RouterContainer extends React.Component {
             <Route path="/Demo4/" component={Demo4} />
             <Route path="/Demo5/" component={Demo5} />
             <Route path="/Demo6/" component={Demo6} />
+            <Route path="/Demo7/" component={Demo7} />
             <Route component={NoMatch} />
           </Switch>
         </div>
