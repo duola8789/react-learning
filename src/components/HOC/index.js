@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { get } from '../../network/helpers'
 
 // 为组件添加获取数据和点击刷新的功能
-const loadAndRefresh = url => WrappedComponent => {
+const loadAndRefreshHOC = url => WrappedComponent => {
   return class extends Component {
     constructor(props) {
       super(props);
@@ -52,7 +52,7 @@ const loadAndRefresh = url => WrappedComponent => {
 };
 
 // 用来监控父级组件传入的Props的改变
-const logProps = WrappedComponent => {
+const logPropsHOC = WrappedComponent => {
   return class extends Component {
     componentWillReceiveProps(nextProps, nextContext) {
       console.log(`WrappedComponent: ${WrappedComponent.displayName}, Current props: `, this.props);
@@ -62,13 +62,38 @@ const logProps = WrappedComponent => {
 
     render() {
       return (
-        <WrappedComponent {...this.props}/>
+        <WrappedComponent {...this.props} />
       )
     }
   }
 };
 
+const showMousePosHoc = WrappedComponent => {
+  return class extends Component {
+     state = {
+       x: 0,
+       y: 0
+     };
+
+    handleMouseMove (e) {
+      this.setState({
+        x: e.clientX,
+        y: e.clientY
+      })
+    }
+
+     render() {
+       return (
+         <div onMouseMove={(e) => this.handleMouseMove(e)} style={{'height': '100vh'}} >
+           <WrappedComponent {...this.props} pos={this.state}/>
+         </div>
+       )
+     }
+  }
+};
+
 export {
-  loadAndRefresh,
-  logProps
+  loadAndRefreshHOC,
+  logPropsHOC,
+  showMousePosHoc
 }

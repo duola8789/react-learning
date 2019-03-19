@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { demo2 as url } from '../../network/api'
-import { loadAndRefresh, logProps } from '../HOC/index'
+import { loadAndRefreshHOC, logPropsHOC } from '../HOC/index'
 
 const Post = ({contents, src, refresh}) => (
   <div>
@@ -13,7 +13,7 @@ const Post = ({contents, src, refresh}) => (
   </div>
 );
 
-const NewPost = logProps(loadAndRefresh(url.getAnswer)(Post));
+const NewPost = logPropsHOC(loadAndRefreshHOC(url.getAnswer)(Post));
 
 export default class Demo4 extends Component {
   constructor(props) {
