@@ -1,0 +1,74 @@
+/**
+ * Created By zh on 2019-03-19
+ */
+import React, { Component } from 'react';
+import { get } from '../../network/helpers'
+
+// 为组件添加获取数据和点击刷新的功能
+const loadAndRefresh = url => WrappedComponent => {
+  return class extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        contents: '',
+        src: '',
+        loading: false,
+      }
+    }
+
+    componentDidMount() {
+      this.refresh()
+    }
+
+    async refresh() {
+      this.setState({
+        contents: 'Loading...',
+        loading: true
+      });
+      console.log('fetch data start');
+      const res = await get(url);
+      this.setState({
+        contents: res.answer,
+        src: res.image,
+        loading: false
+      });
+      console.log('fetch data success');
+    }
+
+    render() {
+      // 可以再外部展示Loading状态，也可以通过contents传入组件内部展示
+      // 哪一种好？不确定，不知道
+      if (this.state.loading) {
+        return <div>Loading!!!!!!!</div>
+      }
+      return (
+        <WrappedComponent contents={this.state.contents}
+                          src={this.state.src}
+                          refresh={() => this.refresh()}
+                          {...this.props} />
+      )
+    }
+  }
+};
+
+// 用来监控父级组件传入的Props的改变
+const logProps = WrappedComponent => {
+  return class extends Component {
+    componentWillReceiveProps(nextProps, nextContext) {
+      console.log(`WrappedComponent: ${WrappedComponent.displayName}, Current props: `, this.props);
+      console.log(`WrappedComponent: ${WrappedComponent.displayName}, Next props: `, nextProps);
+      console.log('%c-----------------------------', 'color: red')
+    }
+
+    render() {
+      return (
+        <WrappedComponent {...this.props}/>
+      )
+    }
+  }
+};
+
+export {
+  loadAndRefresh,
+  logProps
+}
