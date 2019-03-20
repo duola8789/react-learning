@@ -4,16 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import Demo1 from './components/demo1/index'
-import Demo2 from './components/demo2/index'
-import Demo3 from './components/demo3/index'
-import Demo4 from './components/demo4/index'
-import Demo5 from './components/demo5/index'
-import Demo6 from './components/demo6/index'
-import Demo7 from './components/demo7/index'
-import Demo8 from './components/demo8/index'
+import Demo1 from './components/demo1/index';
+import Demo2 from './components/demo2/index';
+import Demo3 from './components/demo3/index';
+import Demo4 from './components/demo4/index';
+import Demo5 from './components/demo5/index';
+import Demo6 from './components/demo6/index';
+import Demo7 from './components/demo7/index';
+import Demo8 from './components/demo8/index';
 
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const NoMatch = () => (<div><h1>Sorry, 404</h1></div>);
 
@@ -42,7 +42,7 @@ export default class RouterContainer extends React.Component {
           </Switch>
         </div>
       </Router>
-    )
+    );
   }
 }
 

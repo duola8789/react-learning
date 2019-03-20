@@ -2,7 +2,7 @@
  * Created By zh on 2019-03-19
  */
 import React, { Component } from 'react';
-import { get } from '../../network/helpers'
+import { get } from '../../network/helpers';
 
 // 为组件添加获取数据和点击刷新的功能
 const loadAndRefreshHOC = url => WrappedComponent => {
@@ -13,11 +13,11 @@ const loadAndRefreshHOC = url => WrappedComponent => {
         contents: '',
         src: '',
         loading: false,
-      }
+      };
     }
 
     componentDidMount() {
-      this.refresh()
+      this.refresh();
     }
 
     async refresh() {
@@ -39,61 +39,62 @@ const loadAndRefreshHOC = url => WrappedComponent => {
       // 可以再外部展示Loading状态，也可以通过contents传入组件内部展示
       // 哪一种好？不确定，不知道
       if (this.state.loading) {
-        return <div>Loading!!!!!!!</div>
+        return <div>Loading!!!!!!!</div>;
       }
       return (
         <WrappedComponent contents={this.state.contents}
                           src={this.state.src}
                           refresh={() => this.refresh()}
-                          {...this.props} />
-      )
+                          {...this.props}
+        />
+      );
     }
-  }
+  };
 };
 
 // 用来监控父级组件传入的Props的改变
 const logPropsHOC = WrappedComponent => {
   return class extends Component {
-    componentWillReceiveProps(nextProps, nextContext) {
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
       console.log(`WrappedComponent: ${WrappedComponent.displayName}, Current props: `, this.props);
       console.log(`WrappedComponent: ${WrappedComponent.displayName}, Next props: `, nextProps);
-      console.log('%c-----------------------------', 'color: red')
+      console.log('%c-----------------------------', 'color: red');
     }
 
     render() {
       return (
         <WrappedComponent {...this.props} />
-      )
+      );
     }
-  }
+  };
 };
 
 const showMousePosHoc = WrappedComponent => {
   return class extends Component {
-     state = {
-       x: 0,
-       y: 0
-     };
+    state = {
+      x: 0,
+      y: 0
+    };
 
-    handleMouseMove (e) {
+    handleMouseMove(e) {
       this.setState({
         x: e.clientX,
         y: e.clientY
-      })
+      });
     }
 
-     render() {
-       return (
-         <div onMouseMove={(e) => this.handleMouseMove(e)} style={{'height': '100vh'}} >
-           <WrappedComponent {...this.props} pos={this.state}/>
-         </div>
-       )
-     }
-  }
+    render() {
+      return (
+        <div onMouseMove={(e) => this.handleMouseMove(e)} style={{ 'height': '100vh' }}>
+          <WrappedComponent {...this.props} pos={this.state} />
+        </div>
+      );
+    }
+  };
 };
 
 export {
   loadAndRefreshHOC,
   logPropsHOC,
   showMousePosHoc
-}
+};

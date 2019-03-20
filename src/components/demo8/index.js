@@ -19,7 +19,7 @@ class Count extends Component {
         <p>You clicked {this.state.count} times</p>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>Click Me</button>
       </div>
-    )
+    );
   }
 }
 
@@ -29,14 +29,14 @@ class Count extends Component {
  * @returns {*}
  * @constructor
  */
-const Count_Hook = () => {
+const CountHook = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     document.title = `You clicked ${count} times`;
     return () => {
-      document.title = 'ok'
-    }
+      document.title = 'ok';
+    };
   }, [count]);
 
   return (
@@ -44,7 +44,7 @@ const Count_Hook = () => {
       <p>You clicked {count} times</p>
       <button onClick={() => setCount(count + 1)}>Click Me</button>
     </div>
-  )
+  );
 };
 
 // 编写一个自定义的Hook，实现的功能：当点击5此时，弹窗，你很棒！
@@ -55,8 +55,9 @@ export default class Demo8 extends Component {
   render() {
     return (
       <div>
-        <Count_Hook />
+        <Count />
+        <CountHook />
       </div>
-    )
+    );
   }
 }

@@ -3,13 +3,13 @@
  */
 import React, { Component } from 'react';
 import { connect, Provider } from 'react-redux';
-import store from '../../store/'
+import store from '../../store/';
 
 const Count = ({ value, onIncreaseClick, onDecreaseClick }) => (
   <div>
-    <button onClick={ onIncreaseClick }> +</button>
-    <span>Now, the count is { value }</span>
-    <button onClick={ onDecreaseClick }> -</button>
+    <button onClick={onIncreaseClick}> +</button>
+    <span>Now, the count is {value}</span>
+    <button onClick={onDecreaseClick}> -</button>
   </div>
 );
 
@@ -32,11 +32,11 @@ const CountContainer = connect(mapStateToProps, mapDispatchToProps)(Count);
 export default class Index extends Component {
   render() {
     return (
-      <Provider store={ store }>
+      <Provider store={store}>
         <CountContainer />
       </Provider>
-    )
+    );
   }
-};
+}
 
 

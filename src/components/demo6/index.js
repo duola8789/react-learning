@@ -9,27 +9,28 @@ class ShowMousePos extends Component {
     y: 0
   };
 
-  handleMouseMove (e) {
+  handleMouseMove(e) {
     this.setState({
       x: e.clientX,
       y: e.clientY
-    })
+    });
   }
 
   render() {
     return (
-      <div onMouseMove={(e) => this.handleMouseMove(e)} style={{'height': '100vh'}} >
+      <div onMouseMove={(e) => this.handleMouseMove(e)} style={{ 'height': '100vh' }}>
         {this.props.render(this.state)}
       </div>
-    )
+    );
   }
 }
 
 const AppWithMouse = () => (
   <div>
-    <ShowMousePos render={({x, y}) => (
+    <ShowMousePos render={({ x, y }) => (
       <h1>The position of mouse is ({x}, {y})</h1>
-    )} />
+    )}
+    />
   </div>
 );
 
@@ -37,6 +38,6 @@ export default class Demo5 extends Component {
   render() {
     return (
       <AppWithMouse />
-    )
+    );
   }
 }

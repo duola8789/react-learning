@@ -1,30 +1,30 @@
 /**
  * Created by zh on 2019/3/4.
  */
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import defaultImage from '../../assets/images/default.jpg'
+import defaultImage from '../../assets/images/default.jpg';
 
 const reducer1 = (state = 0, action) => {
   // console.log('reducer1 was called with state', state, 'and action', action);
   switch (action.type) {
     case 'INCREMENT': {
-      return +state + 1
+      return Number(state) + 1;
     }
     case 'DECREMENT': {
-      return +state - 1
+      return Number(state) - 1;
     }
     case 'CHANGE': {
-      return +action.payload
+      return Number(action.payload);
     }
     default: {
-      return +state
+      return Number(state);
     }
   }
 };
 
 
-const reducer3 = function (state = { status: '', answer: { msg: '', image: defaultImage } }, action) {
+const reducer3 = function (state = { status: '', answer: { msg: '', image: defaultImage }}, action) {
   // console.log('reducer_3 was called with state', state, 'and action', action);
   switch (action.type) {
     case 'SAY_SOMETHING': {
@@ -33,19 +33,19 @@ const reducer3 = function (state = { status: '', answer: { msg: '', image: defau
         message: action.value
       };
     }
-    case 'SEND_QUESTION' : {
+    case 'SEND_QUESTION': {
       return {
         ...state,
         status: action.status,
         question: action.question,
-      }
+      };
     }
-    case 'RECEIVE_ANSWER' : {
+    case 'RECEIVE_ANSWER': {
       return {
         ...state,
         status: action.payload ? action.payload.status : action.status,
         answer: action.payload ? action.payload.answer : action.answer,
-      }
+      };
     }
     default:
       return state;
@@ -54,18 +54,18 @@ const reducer3 = function (state = { status: '', answer: { msg: '', image: defau
 
 const reducer4 = (state = { count: 0 }, action) => {
   switch (action.type) {
-    case 'INCREMENT' : {
+    case 'INCREMENT': {
       return {
         count: state.count + 1
-      }
+      };
     }
-    case 'DECREMENT' : {
+    case 'DECREMENT': {
       return {
         count: state.count - 1
-      }
+      };
     }
     default: {
-      return state
+      return state;
     }
   }
 };
@@ -76,7 +76,7 @@ const reducer = combineReducers({
   val4: reducer4,
 });
 
-export default reducer
+export default reducer;
 
 /**
  * createStore的简单实现
