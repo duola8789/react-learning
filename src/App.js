@@ -17,7 +17,8 @@ class App extends Component {
             <li><Link to="/demo5">Demo5 -- HOC的基本使用(2) 显示鼠标位置</Link></li>
             <li><Link to="/demo6">Demo6 -- Render Props(1) 显示鼠标位置</Link></li>
             <li><Link to="/demo7">Demo7 -- Context API</Link></li>
-            <li><Link to="/demo8">Demo8 -- Hooks API</Link></li>
+            <li><Link to="/demo8">Demo8 -- Hooks API（1）计数器</Link></li>
+            <li><Link to="/demo9">Demo9 -- Hooks API（2）自定义</Link></li>
           </ul>
         </div>
       </div>

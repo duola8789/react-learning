@@ -47,8 +47,6 @@ const CountHook = () => {
   );
 };
 
-// 编写一个自定义的Hook，实现的功能：当点击5此时，弹窗，你很棒！
-
 export default class Demo8 extends Component {
   state = { count: 0 };
 

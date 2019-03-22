@@ -6,6 +6,14 @@ module.exports = {
     // 默认规则说明：https://alloyteam.github.io/eslint-config-alloy/
     'eslint-config-alloy/react',
   ],
+  settings: {
+    react: {
+      // React version. "detect" automatically picks the version you have installed.
+      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+      'version': 'detect'
+    }
+  },
+  plugins: ["react-hooks"],
   globals: {
     // 这里填入你的项目需要的全局变量
     // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
@@ -36,6 +44,11 @@ module.exports = {
     // 禁止出现超过两行的连续空行
     'no-multiple-empty-lines': [2, { 'max': 2}],
     // 一行长度不应该超过120个字符
-    'max-len': [2, 120]
+    'max-len': [2, 120],
+    // React Hooks只能应用顶级函数和React函数中
+    "react-hooks/rules-of-hooks": 'error',
+    "react-hooks/exhaustive-deps": 'error',
+    // no-debugger
+    "no-debugger": 1
   }
 };
