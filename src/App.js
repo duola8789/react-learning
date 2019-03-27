@@ -18,7 +18,13 @@ class App extends Component {
             <li><Link to="/demo6">Demo6 -- Render Props(1) 显示鼠标位置</Link></li>
             <li><Link to="/demo7">Demo7 -- Context API</Link></li>
             <li><Link to="/demo8">Demo8 -- Hooks API（1）计数器</Link></li>
-            <li><Link to="/demo9">Demo9 -- Hooks API（2）自定义</Link></li>
+            <li><Link to="/demo9_1">Demo9_1 -- Hooks API（2-1）好友上线使用多个Effect</Link></li>
+            <li><Link to="/demo9_2">Demo9_2 -- Hooks API（2-2）好友上线使用自定义Effect</Link></li>
+            <li><Link to="/demo10_1">Demo10_1 -- Hooks API（3-1）useEffect的学习</Link></li>
+            <li><Link to="/demo10_2">Demo10_2 -- Hooks API（3-2）useEffect的快照</Link></li>
+            <li><Link to="/demo10_3">Demo10_3 -- Hooks API（3-3）useRef</Link></li>
+            <li><Link to="/demo11">Demo11 -- Hooks API（4）useReducer</Link></li>
+            <li><Link to="/demo12">Demo12 -- Hooks API（5）useCallback</Link></li>
           </ul>
         </div>
       </div>

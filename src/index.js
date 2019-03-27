@@ -12,7 +12,13 @@ import Demo5 from './components/demo5/index';
 import Demo6 from './components/demo6/index';
 import Demo7 from './components/demo7/index';
 import Demo8 from './components/demo8/index';
-import Demo9 from './components/demo9/index';
+import Demo9_1 from './components/demo9_1/index';
+import Demo9_2 from './components/demo9_2/index';
+import Demo10_1 from './components/demo10_1/index';
+import Demo10_2 from './components/demo10_2/index';
+import Demo10_3 from './components/demo10_3/index';
+import Demo11 from './components/demo11/index';
+import Demo12 from './components/demo12/index';
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
@@ -39,7 +45,13 @@ export default class RouterContainer extends React.Component {
             <Route path="/Demo6/" component={Demo6} />
             <Route path="/Demo7/" component={Demo7} />
             <Route path="/Demo8/" component={Demo8} />
-            <Route path="/Demo9/" component={Demo9} />
+            <Route path="/Demo9_1/" component={Demo9_1} />
+            <Route path="/Demo9_2/" component={Demo9_2} />
+            <Route path="/Demo10_1/" component={Demo10_1} />
+            <Route path="/Demo10_2/" component={Demo10_2} />
+            <Route path="/Demo10_3/" component={Demo10_3} />
+            <Route path="/Demo11/" component={Demo11} />
+            <Route path="/Demo12/" component={Demo12} />
             <Route component={NoMatch} />
           </Switch>
         </div>

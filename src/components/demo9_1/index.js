@@ -12,62 +12,67 @@ let users = [
 ];
 
 const ChatAPI = {
-  findUser(id) {
-    return users.find(v => v.id === id);
-  },
   // 上线通知
-  subscribe(id, callback) {
-    let user = this.findUser(id);
-    if (user.status.isOnline) {
-      console.log(user.name);
-    }
-    user && callback(user.status.isOnline);
+  subscribe(name, from) {
+    console.log(`${name}上线了 -- from ${from}`);
   },
   // 下线通知
-  unsubscribe(id, callback) {
-    let user = this.findUser(id);
-    user && callback(user.status.isOnline);
+  unsubscribe(name, from) {
+    console.log(`${name}下线了 -- from ${from}`);
   }
 };
-
 
 /**
  * 好友在线状态组件
  * 根据好友在线状态显示对应文本
  */
-const FriendStatus = props => {
+const FriendStatus = ({ user }) => {
   const [isOnline, setIsOnline] = useState(false);
 
-  const handleStatusChange = isOnline => {
-    setIsOnline(isOnline);
-  };
+  useEffect(() => {
+    setIsOnline(user.status.isOnline);
+  });
 
   useEffect(() => {
-    ChatAPI.subscribe(props.id, handleStatusChange);
-    return () => {
-      ChatAPI.unsubscribe(props.id, handleStatusChange);
-    };
-  });
+    if (user.status.isOnline) {
+      ChatAPI.subscribe(user.name, 'FriendStatus');
+      return () => {
+        ChatAPI.unsubscribe(user.name, 'FriendStatus');
+      };
+    }
+  }, [user.name, user.status.isOnline]);
 
   return (
     isOnline ? 'Online↑↑↑↑↑↑↑↑↑↑↑↑' : 'Offline'
   );
 };
 
-// const FriendListItem = props => {
-//   const [isOnline, setIsOnline] = useState(false);
-//
-//   useEffect(() => {
-//     setIsOnline(true);
-//     return () => {
-//       setIsOnline(false);
-//     };
-//   });
-//
-//   return (
-//     <li style={{ color: isOnline ? 'green' : 'red' }}>{props.user.name}</li>
-//   );
-// };
+/**
+ * 好友在线状态组件
+ * 根据好友在线状态显示不同颜色用户名
+ */
+const FriendListItem = ({ user }) => {
+  const [isOnline, setIsOnline] = useState(false);
+
+  useEffect(() => {
+    setIsOnline(user.status.isOnline);
+  });
+
+  useEffect(() => {
+    if (user.status.isOnline) {
+      ChatAPI.subscribe(user.name, 'FriendListItem');
+      return () => {
+        ChatAPI.unsubscribe(user.name, 'FriendListItem');
+      };
+    }
+  }, [user.name, user.status.isOnline]);
+
+  return (
+    <span style={{ color: isOnline ? 'green' : 'white' }}>
+      {user.name}
+    </span>
+  );
+};
 
 
 export default function () {
@@ -94,7 +99,7 @@ export default function () {
       <ul>
         {users.map(user => (
           <p key={user.id}>
-            {user.name}: <FriendStatus id={user.id} />
+            <FriendListItem user={user} />: <FriendStatus user={user} />
           </p>
         ))}
       </ul>
