@@ -25,6 +25,7 @@ class App extends Component {
             <li><Link to="/demo10_3">Demo10_3 -- Hooks API（3-3）useRef</Link></li>
             <li><Link to="/demo11">Demo11 -- Hooks API（4）useReducer</Link></li>
             <li><Link to="/demo12">Demo12 -- Hooks API（5）useCallback</Link></li>
+            <li><Link to="/demo13">Demo13</Link></li>
           </ul>
         </div>
       </div>
