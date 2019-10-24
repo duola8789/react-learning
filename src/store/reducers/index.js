@@ -70,10 +70,24 @@ const reducer4 = (state = { count: 0 }, action) => {
   }
 };
 
+const reducer14 = (state = { msg: 'Hello' }, action) => {
+  switch (action.type) {
+    case 'changeMsg': {
+      return {
+        msg: 'By Redux From ' + action.payload.where,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 const reducer = combineReducers({
   val1: reducer1,
   val3: reducer3,
   val4: reducer4,
+  reducer14,
 });
 
 export default reducer;

@@ -4,22 +4,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import Demo1 from './components/demo1/index';
-import Demo2 from './components/demo2/index';
-import Demo3 from './components/demo3/index';
-import Demo4 from './components/demo4/index';
-import Demo5 from './components/demo5/index';
-import Demo6 from './components/demo6/index';
-import Demo7 from './components/demo7/index';
-import Demo8 from './components/demo8/index';
-import Demo9_1 from './components/demo9_1/index';
-import Demo9_2 from './components/demo9_2/index';
-import Demo10_1 from './components/demo10_1/index';
-import Demo10_2 from './components/demo10_2/index';
-import Demo10_3 from './components/demo10_3/index';
-import Demo11 from './components/demo11/index';
-import Demo12 from './components/demo12/index';
-import Demo13 from './components/demo13/index';
+import Demo1 from './views/demo1/index';
+import Demo2 from './views/demo2/index';
+import Demo3 from './views/demo3/index';
+import Demo4 from './views/demo4/index';
+import Demo5 from './views/demo5/index';
+import Demo6 from './views/demo6/index';
+import Demo7 from './views/demo7/index';
+import Demo8_1 from './views/demo8_1/index';
+import Demo8_2 from './views/demo8_2/index';
+import Demo8_3 from './views/demo8_3/index';
+import Demo8_4 from './views/demo8_4/index';
+import Demo8_5 from './views/demo8_5/index';
+import Demo8_6 from './views/demo8_6/index';
+import Demo8_7 from './views/demo8_7/index';
+import Demo8_8 from './views/demo8_8/index';
+import Demo8_9 from './views/demo8_9/index';
+import Demo13 from './views/demo13/index';
+import Demo14 from './views/demo14/index';
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
@@ -45,15 +47,17 @@ export default class RouterContainer extends React.Component {
             <Route path="/Demo5/" component={Demo5} />
             <Route path="/Demo6/" component={Demo6} />
             <Route path="/Demo7/" component={Demo7} />
-            <Route path="/Demo8/" component={Demo8} />
-            <Route path="/Demo9_1/" component={Demo9_1} />
-            <Route path="/Demo9_2/" component={Demo9_2} />
-            <Route path="/Demo10_1/" component={Demo10_1} />
-            <Route path="/Demo10_2/" component={Demo10_2} />
-            <Route path="/Demo10_3/" component={Demo10_3} />
-            <Route path="/Demo11/" component={Demo11} />
-            <Route path="/Demo12/" component={Demo12} />
+            <Route path="/Demo8_1/" component={Demo8_1} />
+            <Route path="/Demo8_2/" component={Demo8_2} />
+            <Route path="/Demo8_3/" component={Demo8_3} />
+            <Route path="/Demo8_4/" component={Demo8_4} />
+            <Route path="/Demo8_5/" component={Demo8_5} />
+            <Route path="/Demo8_6/" component={Demo8_6} />
+            <Route path="/Demo8_7/" component={Demo8_7} />
+            <Route path="/Demo8_8/" component={Demo8_8} />
+            <Route path="/Demo8_9/" component={Demo8_9} />
             <Route path="/Demo13/" component={Demo13} />
+            <Route path="/Demo14/" component={Demo14} />
             <Route component={NoMatch} />
           </Switch>
         </div>

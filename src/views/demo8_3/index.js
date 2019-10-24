@@ -22,16 +22,13 @@ const ChatAPI = {
   }
 };
 
-/**
- * 好友在线状态组件
- * 根据好友在线状态显示对应文本
- */
-const FriendStatus = ({ user }) => {
+// 将上一个demo9_1的逻辑提取为自定义的Hook
+function useFriendStatus(user) {
   const [isOnline, setIsOnline] = useState(false);
 
   useEffect(() => {
     setIsOnline(user.status.isOnline);
-  });
+  }, [user]);
 
   useEffect(() => {
     if (user.status.isOnline) {
@@ -41,6 +38,16 @@ const FriendStatus = ({ user }) => {
       };
     }
   }, [user.name, user.status.isOnline]);
+
+  return isOnline;
+}
+
+/**
+ * 好友在线状态组件
+ * 根据好友在线状态显示对应文本
+ */
+const FriendStatus = ({ user }) => {
+  const isOnline = useFriendStatus(user);
 
   return (
     isOnline ? 'Online↑↑↑↑↑↑↑↑↑↑↑↑' : 'Offline'
@@ -52,20 +59,7 @@ const FriendStatus = ({ user }) => {
  * 根据好友在线状态显示不同颜色用户名
  */
 const FriendListItem = ({ user }) => {
-  const [isOnline, setIsOnline] = useState(false);
-
-  useEffect(() => {
-    setIsOnline(user.status.isOnline);
-  });
-
-  useEffect(() => {
-    if (user.status.isOnline) {
-      ChatAPI.subscribe(user.name, 'FriendListItem');
-      return () => {
-        ChatAPI.unsubscribe(user.name, 'FriendListItem');
-      };
-    }
-  }, [user.name, user.status.isOnline]);
+  const isOnline = useFriendStatus(user);
 
   return (
     <span style={{ color: isOnline ? 'green' : 'white' }}>
@@ -74,6 +68,20 @@ const FriendListItem = ({ user }) => {
   );
 };
 
+function initialize() {
+  console.log('initialize');
+  return 1;
+}
+
+function Test() {
+  const [state, setState] = useState(() => ({ a: initialize(), b: 2 }));
+  console.log(state);
+  return (
+    <div>
+      <button onClick={() => setState(prevState => ({ ...prevState, a: 100 }))}>click</button>
+    </div>
+  );
+}
 
 export default function () {
   const [count, setCount] = useState(0);
@@ -103,6 +111,7 @@ export default function () {
           </p>
         ))}
       </ul>
+      <Test />
     </div>
   );
 }

@@ -49,6 +49,6 @@ module.exports = {
     "react-hooks/rules-of-hooks": 'error',
     "react-hooks/exhaustive-deps": 'error',
     // no-debugger
-    "no-debugger": 1
+    "no-debugger": process.env.NODE_ENV === 'production' ? 2 : 0
   }
 };

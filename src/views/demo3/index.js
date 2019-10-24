@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { connect, Provider } from 'react-redux';
-import store from '../../store/';
+import store from '@/store/';
 
 const Count = ({ value, onIncreaseClick, onDecreaseClick }) => (
   <div>

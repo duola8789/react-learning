@@ -17,15 +17,17 @@ class App extends Component {
             <li><Link to="/demo5">Demo5 -- HOC的基本使用(2) 显示鼠标位置</Link></li>
             <li><Link to="/demo6">Demo6 -- Render Props(1) 显示鼠标位置</Link></li>
             <li><Link to="/demo7">Demo7 -- Context API</Link></li>
-            <li><Link to="/demo8">Demo8 -- Hooks API（1）计数器</Link></li>
-            <li><Link to="/demo9_1">Demo9_1 -- Hooks API（2-1）好友上线使用多个Effect</Link></li>
-            <li><Link to="/demo9_2">Demo9_2 -- Hooks API（2-2）好友上线使用自定义Effect</Link></li>
-            <li><Link to="/demo10_1">Demo10_1 -- Hooks API（3-1）useEffect的学习</Link></li>
-            <li><Link to="/demo10_2">Demo10_2 -- Hooks API（3-2）useEffect的快照</Link></li>
-            <li><Link to="/demo10_3">Demo10_3 -- Hooks API（3-3）useRef</Link></li>
-            <li><Link to="/demo11">Demo11 -- Hooks API（4）useReducer</Link></li>
-            <li><Link to="/demo12">Demo12 -- Hooks API（5）useCallback</Link></li>
-            <li><Link to="/demo13">Demo13</Link></li>
+            <li><Link to="/demo8_1">Demo8_1 -- Hooks API（1）计数器</Link></li>
+            <li><Link to="/demo8_2">Demo8_2 -- Hooks API（2）好友上线使用多个Effect</Link></li>
+            <li><Link to="/demo8_3">Demo8_3 -- Hooks API（3）好友上线使用自定义Effect</Link></li>
+            <li><Link to="/demo8_4">Demo8_4 -- Hooks API（4）useEffect的学习</Link></li>
+            <li><Link to="/demo8_5">Demo8_5 -- Hooks API（5）useEffect的快照</Link></li>
+            <li><Link to="/demo8_6">Demo8_6 -- Hooks API（6）useRef</Link></li>
+            <li><Link to="/demo8_7">Demo8_7 -- Hooks API（7）useReducer</Link></li>
+            <li><Link to="/demo8_8">Demo8_8 -- Hooks API（8）useCallback</Link></li>
+            <li><Link to="/demo8_9">Demo8_9 -- Hooks API（9）useContext</Link></li>
+            <li><Link to="/demo13">Demo13 -- React 16</Link></li>
+            <li><Link to="/demo14">Demo14 -- 组件间通信</Link></li>
           </ul>
         </div>
       </div>
