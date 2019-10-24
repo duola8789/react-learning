@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { connect, Provider } from 'react-redux';
 import store from '@/store/';
 import style from './index.module.css';
-import { event } from '@/utils';
+import { event3 as event } from '@/utils';
 
 // 初始化一个 Context
 const Context = React.createContext();
