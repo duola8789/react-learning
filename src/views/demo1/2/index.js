@@ -12,9 +12,13 @@ const Context = React.createContext();
 
 const Child1 = props => {
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       event.emit('msg', 'Message from Child1');
     }, 3000);
+    return () => {
+      clearTimeout(timer);
+      timer = null;
+    };
   }, []);
 
   return (
@@ -51,6 +55,9 @@ const Child2 = () => {
 
   useEffect(() => {
     event.on('msg', newMsg => setMsg(newMsg));
+    return () => {
+      event.off('msg');
+    };
   }, []);
 
   return (
@@ -89,9 +96,13 @@ const Parent = () => {
   const [msg, setMsg] = useState('start');
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setMsg('end');
     }, 2000);
+    return () => {
+      clearTimeout(timer);
+      timer = null;
+    };
   }, []);
 
   return (

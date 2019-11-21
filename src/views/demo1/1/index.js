@@ -22,7 +22,6 @@ class Test extends React.Component {
       y: 81,
     });
     console.log(this.state.y, 123);
-    return false;
   }
 
   render() {

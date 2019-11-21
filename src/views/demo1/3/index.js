@@ -18,7 +18,7 @@ class ShowMousePos extends Component {
 
   render() {
     return (
-      <div onMouseMove={(e) => this.handleMouseMove(e)} style={{ 'height': '100vh' }}>
+      <div onMouseMove={(e) => this.handleMouseMove(e)} style={{ 'height': '60vh', 'border': '1px solid grey' }}>
         {this.props.render(this.state)}
       </div>
     );

@@ -2,7 +2,7 @@
  * Created By zh on 2019-03-19
  */
 import React, { Component } from 'react';
-import { get } from '../../network/helpers';
+import { get } from '../../../network/helpers';
 
 // 为组件添加获取数据和点击刷新的功能
 const loadAndRefreshHOC = url => WrappedComponent => {
@@ -69,6 +69,7 @@ const logPropsHOC = WrappedComponent => {
   };
 };
 
+// 获取鼠标位置
 const showMousePosHoc = WrappedComponent => {
   return class extends Component {
     state = {
@@ -85,7 +86,7 @@ const showMousePosHoc = WrappedComponent => {
 
     render() {
       return (
-        <div onMouseMove={(e) => this.handleMouseMove(e)} style={{ 'height': '100vh' }}>
+        <div onMouseMove={(e) => this.handleMouseMove(e)}>
           <WrappedComponent {...this.props} pos={this.state} />
         </div>
       );
@@ -96,5 +97,5 @@ const showMousePosHoc = WrappedComponent => {
 export {
   loadAndRefreshHOC,
   logPropsHOC,
-  showMousePosHoc
+  showMousePosHoc,
 };

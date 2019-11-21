@@ -1,9 +1,11 @@
 /**
  * Created By zh on 2019-03-19
+ *
  */
+// 取数据和点击刷新的功能
 import React, { Component } from 'react';
-import { demo2 as url } from '../../network/api';
-import { loadAndRefreshHOC, logPropsHOC } from '../HOC/index';
+import { demo2 as url } from '@/network/api';
+import { loadAndRefreshHOC, logPropsHOC } from '../HOC';
 
 const Post = ({ contents, src, refresh }) => (
   <div>
@@ -17,7 +19,7 @@ const Post = ({ contents, src, refresh }) => (
 
 const NewPost = logPropsHOC(loadAndRefreshHOC(url.getAnswer)(Post));
 
-export default class Demo4 extends Component {
+export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,17 +27,9 @@ export default class Demo4 extends Component {
     };
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        count: this.state.count + 1
-      });
-    }, 5000);
-  }
-
   render() {
     return (
-      <NewPost count={this.state.count} />
+      <NewPost />
     );
   }
 }

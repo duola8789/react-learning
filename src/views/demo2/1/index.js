@@ -2,7 +2,7 @@
  * Created by zh on 2019/3/1.
  */
 import React, { Component } from 'react';
-import store from '../../store/';
+import store from '../../../store';
 
 const Count = ({ value, onIncrement, onDecrement, onChange }) => {
   return (

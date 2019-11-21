@@ -2,12 +2,12 @@
  * Created by zh on 2019/3/1.
  */
 import React, { Component } from 'react';
-import style from './demo2.module.css';
-import store from '../../store/';
+import style from './index.module.css';
+import store from '../../../store';
 
 import { createAction } from 'redux-actions';
 
-import * as Request from '../../network/request';
+import * as Request from '../../../network/request';
 
 export default class Index extends Component {
   constructor(props) {
