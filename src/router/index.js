@@ -129,7 +129,7 @@ const fullRoutes = [
         component: Demo4_6,
       }, {
         name: 'useReducer',
-        path: '/demo5/7',
+        path: '/demo4/7',
         icon: 'car',
         component: Demo4_7,
       }, {
