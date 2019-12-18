@@ -18,6 +18,7 @@ export default class Index extends Component {
       question: store.getState().val3.question,
       questionInput: ''
     };
+    this._isMounted = false;
   }
 
   // 使用redux-thunk中间件解决异步操作
@@ -71,6 +72,10 @@ export default class Index extends Component {
   //   store.dispatch(receivePost());
   // }
 
+  componentDidMount() {
+    this._isMounted = false;
+  }
+
   // 使用redux-promise中间件解决异步操作第二种写法
   sendQuestion() {
     const question = this.state.questionInput;
@@ -100,18 +105,19 @@ export default class Index extends Component {
     );
   }
 
-
   render() {
     const status = this.state.status;
     const answer = this.state.answer;
     const question = this.state.question;
 
     store.subscribe(() => {
-      this.setState({
-        status: store.getState().val3.status,
-        answer: store.getState().val3.answer,
-        question: store.getState().val3.question,
-      });
+      if (this._isMounted) {
+        this.setState({
+          status: store.getState().val3.status,
+          answer: store.getState().val3.answer,
+          question: store.getState().val3.question,
+        });
+      }
     });
 
     return (

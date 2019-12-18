@@ -3,24 +3,24 @@
  */
 import Index from '@/views/common/Index';
 import NotFound from '@/views/common/404';
-import Demo1_1 from '@/views/demo1/1';
-import Demo1_2 from '@/views/demo1/2';
-import Demo1_3 from '@/views/demo1/3';
-import Demo1_4 from '@/views/demo1/4';
-import Demo2_1 from '@/views/demo2/1';
-import Demo2_2 from '@/views/demo2/2';
-import Demo2_3 from '@/views/demo2/3';
-import Demo3_1 from '@/views/demo3/1';
-import Demo3_2 from '@/views/demo3/2';
-import Demo4_1 from '@/views/demo4/1';
-import Demo4_2 from '@/views/demo4/2';
-import Demo4_3 from '@/views/demo4/3';
-import Demo4_4 from '@/views/demo4/4';
-import Demo4_5 from '@/views/demo4/5';
-import Demo4_6 from '@/views/demo4/6';
-import Demo4_7 from '@/views/demo4/7';
-import Demo4_8 from '@/views/demo4/8';
-import Demo4_9 from '@/views/demo4/9';
+import Demo1_1 from '@/views/Uncategorized/1';
+import Demo1_2 from '@/views/Uncategorized/2';
+import Demo1_3 from '@/views/Uncategorized/3';
+import Demo1_4 from '@/views/Uncategorized/4';
+import Demo2_1 from '@/views/Redux/1';
+import Demo2_2 from '@/views/Redux/2';
+import Demo2_3 from '@/views/Redux/3';
+import Demo3_1 from '@/views/HOC/1';
+import Demo3_2 from '@/views/HOC/2';
+import Demo4_1 from '@/views/Hooks/1';
+import Demo4_2 from '@/views/Hooks/2';
+import Demo4_3 from '@/views/Hooks/3';
+import Demo4_4 from '@/views/Hooks/4';
+import Demo4_5 from '@/views/Hooks/5';
+import Demo4_6 from '@/views/Hooks/6';
+import Demo4_7 from '@/views/Hooks/7';
+import Demo4_8 from '@/views/Hooks/8';
+import Demo4_9 from '@/views/Hooks/9';
 
 // 路由列表，一级目录的 path 用作 key
 const fullRoutes = [
@@ -70,6 +70,7 @@ const fullRoutes = [
       }, {
         name: 'React-Redux',
         path: '/demo2/3',
+        icon: 'bell',
         component: Demo2_3,
       },
     ]
