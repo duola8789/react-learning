@@ -3,147 +3,132 @@
  */
 import Index from '@/views/common/Index';
 import NotFound from '@/views/common/404';
-import Demo1_1 from '@/views/Uncategorized/1';
-import Demo1_2 from '@/views/Uncategorized/2';
-import Demo1_3 from '@/views/Uncategorized/3';
-import Demo1_4 from '@/views/Uncategorized/4';
-import Demo2_1 from '@/views/Redux/1';
-import Demo2_2 from '@/views/Redux/2';
-import Demo2_3 from '@/views/Redux/3';
-import Demo3_1 from '@/views/HOC/1';
-import Demo3_2 from '@/views/HOC/2';
-import Demo4_1 from '@/views/Hooks/1';
-import Demo4_2 from '@/views/Hooks/2';
-import Demo4_3 from '@/views/Hooks/3';
-import Demo4_4 from '@/views/Hooks/4';
-import Demo4_5 from '@/views/Hooks/5';
-import Demo4_6 from '@/views/Hooks/6';
-import Demo4_7 from '@/views/Hooks/7';
-import Demo4_8 from '@/views/Hooks/8';
-import Demo4_9 from '@/views/Hooks/9';
+import React16 from '@/views/Uncategorized/React16';
+import Communication from '@/views/Uncategorized/Communication';
+import RenderProps from '@/views/Uncategorized/RenderProps';
+import ContextApi from '@/views/Uncategorized/ContextApi';
+import Concepts from '@/views/Redux/Concepts';
+import Middleware from '@/views/Redux/Middleware';
+import ReactRedux from '@/views/Redux/React-Redux';
+import FetchAndRefresh from '@/views/HOC/FetchAndRefresh';
+import CursorPosition from '@/views/HOC/CursorPosition';
+import CountDemo from '@/views/Hooks/CountDemo';
+import UseEffect from '@/views/Hooks/UseEffect';
+import SnapshotOfUseEffect from '@/views/Hooks/SnapshotOfUseEffect';
+import UseRef from '@/views/Hooks/UseRef';
+import UseReducer from '@/views/Hooks/UseReducer';
+import UseCallback from '@/views/Hooks/UseCallback';
+import UseContext from '@/views/Hooks/UseContext';
+import Dva from '@/views/Dva';
 
 // 路由列表，一级目录的 path 用作 key
 const fullRoutes = [
   {
     name: '未分类',
     icon: 'github',
-    path: '/demo1',
+    path: '/uncategorized',
     children: [
       {
         name: 'React 16',
-        path: '/demo1/1',
-        icon: 'account-book',
-        component: Demo1_1,
+        path: '/uncategorized/react16',
+        component: React16,
       }, {
         name: '组件间通信',
-        path: '/demo1/2',
-        icon: 'alert',
-        component: Demo1_2,
+        path: '/uncategorized/communication',
+        component: Communication,
       }, {
         name: 'Render Props',
-        path: '/demo1/3',
-        icon: 'api',
-        component: Demo1_3,
+        path: '/uncategorized/render-props',
+        component: RenderProps,
       }, {
         name: 'Context API',
-        path: '/demo1/4',
-        icon: 'appstore',
-        component: Demo1_4,
+        path: '/uncategorized/context-api',
+        component: ContextApi,
       },
     ]
   },
   {
     name: 'Redux',
     icon: 'android',
-    path: '/demo2',
+    path: '/redux',
     children: [
       {
         name: '基本概念',
-        path: '/demo2/1',
-        icon: 'audio',
-        component: Demo2_1,
+        path: '/redux/concepts',
+        component: Concepts,
       }, {
         name: '中间件和异步操作',
-        path: '/demo2/2',
-        icon: 'bank',
-        component: Demo2_2,
+        path: '/redux/middleware',
+        component: Middleware,
       }, {
         name: 'React-Redux',
-        path: '/demo2/3',
-        icon: 'bell',
-        component: Demo2_3,
+        path: '/redux/react-redux',
+        component: ReactRedux,
       },
     ]
   },
   {
     name: 'HOC',
     icon: 'apple',
-    path: '/demo3',
+    path: '/hoc',
     children: [
       {
         name: '获取数据和刷新',
-        path: '/demo3/1',
-        icon: 'bell',
-        component: Demo3_1,
+        path: '/hoc/fetch-and-refresh',
+        component: FetchAndRefresh,
       }, {
         name: '显示鼠标位置',
-        path: '/demo3/2',
-        icon: 'book',
-        component: Demo3_2,
+        path: '/hoc/cursor-position',
+        component: CursorPosition,
       },
     ]
   },
   {
     name: 'Hooks',
     icon: 'chrome',
-    path: '/demo4',
+    path: '/hooks',
     children: [
       {
         name: '计数器',
-        path: '/demo4/1',
-        icon: 'bug',
-        component: Demo4_1,
+        path: '/hooks/count-demo',
+        component: CountDemo,
       }, {
-        name: '好友上线使用多个 Effect',
-        path: '/demo4/2',
-        icon: 'bulb',
-        component: Demo4_2,
+        name: 'useEffect',
+        path: '/hooks/use-effect',
+        component: UseEffect,
       }, {
-        name: '好友上线使用自定义 Effect',
-        path: '/demo4/3',
-        icon: 'calculator',
-        component: Demo4_3,
-      }, {
-        name: 'useEffect 的学习',
-        path: '/demo4/4',
-        icon: 'build',
-        component: Demo4_4,
-      }, {
-        name: 'useEffect 的快照',
-        path: '/demo4/5',
-        icon: 'calendar',
-        component: Demo4_5,
+        name: 'useEffect快照',
+        path: '/hooks/snapshot-use-effect',
+        component: SnapshotOfUseEffect,
       }, {
         name: 'useRef',
-        path: '/demo4/6',
-        icon: 'camera',
-        component: Demo4_6,
+        path: '/hooks/use-ref',
+        component: UseRef,
       }, {
         name: 'useReducer',
-        path: '/demo4/7',
-        icon: 'car',
-        component: Demo4_7,
+        path: '/hooks/use-reducer',
+        component: UseReducer,
       }, {
         name: 'useCallback',
-        path: '/demo4/8',
-        icon: 'carry-out',
-        component: Demo4_8,
+        path: '/hooks/use-callback',
+        component: UseCallback,
       }, {
         name: 'useContext',
-        path: '/demo4/9',
-        icon: 'cloud',
-        component: Demo4_9,
+        path: '/hooks/use-context',
+        component: UseContext,
       },
+    ]
+  },
+  {
+    name: 'Dva',
+    icon: 'qq',
+    path: '/Dva',
+    children: [
+      {
+        name: '基本概念',
+        path: '/Dva/concepts',
+        component: Dva,
+      }
     ]
   },
   {

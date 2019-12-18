@@ -1,5 +1,12 @@
 /**
  * Created by zh on 2019/3/6.
  */
-export * from './demo2/';
+import API from './api';
+import { get } from './helpers';
+
+const getAnswer = async (params) => get(API.getAnswer, params);
+
+export default {
+  getAnswer
+};
 

@@ -65,7 +65,9 @@ export default function () {
 
         // 二级菜单
         const Items = Array.isArray(menu.children)
-          ? menu.children.map(item => <Menu.Item key={item.path}><Icon type={item.icon} />{item.name}</Menu.Item>)
+          ? menu.children.map(
+            item => <Menu.Item key={item.path}><Icon type={item.icon || menu.icon} />{item.name}</Menu.Item>
+          )
           : null;
 
         return (

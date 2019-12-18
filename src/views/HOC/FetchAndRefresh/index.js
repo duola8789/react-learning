@@ -4,7 +4,7 @@
  */
 // 取数据和点击刷新的功能
 import React, { Component } from 'react';
-import { demo2 as url } from '@/network/api';
+import Api from '@/network/api';
 import { loadAndRefreshHOC, logPropsHOC } from '../HOC';
 
 const Post = ({ contents, src, refresh }) => (
@@ -17,7 +17,7 @@ const Post = ({ contents, src, refresh }) => (
   </div>
 );
 
-const NewPost = logPropsHOC(loadAndRefreshHOC(url.getAnswer)(Post));
+const NewPost = logPropsHOC(loadAndRefreshHOC(Api.yesOrNoApi)(Post));
 
 export default class Index extends Component {
   constructor(props) {
