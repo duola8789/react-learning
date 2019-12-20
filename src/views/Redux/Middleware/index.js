@@ -123,8 +123,7 @@ export default class Index extends Component {
     return (
       <div>
         <input placeholder="input your question..." value={this.state.questionInput}
-               onChange={(e) => this.setState({ questionInput: e.target.value })}
-        />
+               onChange={(e) => this.setState({ questionInput: e.target.value })} />
         <button onClick={() => this.sendQuestion()}>send</button>
         {status}
         <p>The question is {question}</p>

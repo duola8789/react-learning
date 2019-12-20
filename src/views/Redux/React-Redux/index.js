@@ -17,8 +17,8 @@ const mapStateToProps = (state) => ({ value: state.val4.count });
 
 // 函数形式
 // const mapDispatchToProps = (dispatch) => ({
-//   onIncreaseClick: () => dispatch({ type: 'INCREMENT'}),
-//   onDecreaseClick: () => dispatch({ type: 'DECREMENT'}),
+//   onIncreaseClick: () => dispatch({ type: 'INCREMENT' }),
+//   onDecreaseClick: () => dispatch({ type: 'DECREMENT' }),
 // });
 
 // 对象形式

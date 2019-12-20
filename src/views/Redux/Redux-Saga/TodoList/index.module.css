@@ -1,0 +1,31 @@
+/**
+ * Created by zh on 2019/12/18.
+ */
+.container {
+  width: 500px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.inputContainer {
+  margin-top: 20px;
+}
+.listContainer {
+  margin: 20px 0 0 0;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 15px 0;
+  list-style-type: armenian;
+}
+.icon {
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  margin-right: 10px
+}

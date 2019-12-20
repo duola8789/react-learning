@@ -4,7 +4,7 @@
 import API from './api';
 import { get } from './helpers';
 
-const getAnswer = async (params) => get(API.getAnswer, params);
+const getAnswer = async (params) => get(API.yesOrNoApi, params);
 
 export default {
   getAnswer

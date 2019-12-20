@@ -3,15 +3,20 @@
  */
 import Index from '@/views/common/Index';
 import NotFound from '@/views/common/404';
+
 import React16 from '@/views/Uncategorized/React16';
 import Communication from '@/views/Uncategorized/Communication';
 import RenderProps from '@/views/Uncategorized/RenderProps';
 import ContextApi from '@/views/Uncategorized/ContextApi';
+
 import Concepts from '@/views/Redux/Concepts';
 import Middleware from '@/views/Redux/Middleware';
 import ReactRedux from '@/views/Redux/React-Redux';
+import CountDemoBySaga from '@/views/Redux/Redux-Saga/CountDemo';
+
 import FetchAndRefresh from '@/views/HOC/FetchAndRefresh';
 import CursorPosition from '@/views/HOC/CursorPosition';
+
 import CountDemo from '@/views/Hooks/CountDemo';
 import UseEffect from '@/views/Hooks/UseEffect';
 import SnapshotOfUseEffect from '@/views/Hooks/SnapshotOfUseEffect';
@@ -19,6 +24,7 @@ import UseRef from '@/views/Hooks/UseRef';
 import UseReducer from '@/views/Hooks/UseReducer';
 import UseCallback from '@/views/Hooks/UseCallback';
 import UseContext from '@/views/Hooks/UseContext';
+
 import Dva from '@/views/Dva';
 
 // 路由列表，一级目录的 path 用作 key
@@ -64,6 +70,10 @@ const fullRoutes = [
         name: 'React-Redux',
         path: '/redux/react-redux',
         component: ReactRedux,
+      }, {
+        name: 'Redux-Saga',
+        path: '/redux/count-demo-saga',
+        component: CountDemoBySaga,
       },
     ]
   },
