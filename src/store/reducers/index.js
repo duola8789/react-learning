@@ -2,6 +2,7 @@
  * Created by zh on 2019/3/4.
  */
 import { combineReducers } from 'redux';
+import actionTypes from '@/store/actions/actionTypes';
 
 import defaultImage from '../../assets/images/default.jpg';
 
@@ -83,11 +84,102 @@ const reducer14 = (state = { msg: 'Hello' }, action) => {
   }
 };
 
+const sagaAnswer = (state = { question: '', answer: '', image: '', loading: false }, action) => {
+  switch (action.type) {
+    case 'ASK': {
+      return {
+        question: action.payload.question,
+        answer: '',
+        image: '',
+        loading: false,
+      };
+    }
+    case 'ASK_QUESTION_SUCCEEDED': {
+      return {
+        ...state,
+        answer: action.payload.answer,
+        image: action.payload.image,
+        loading: false,
+      };
+    }
+    case 'ASK_QUESTION_FAILED': {
+      return {
+        ...state,
+        answer: action.payload.message,
+        image: '',
+        loading: false,
+      };
+    }
+    case 'THINKING': {
+      return {
+        ...state,
+        answer: 'Thinking...',
+        image: '',
+        loading: true,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const sagaCount = (state = { count: 0, loading: false }, action) => {
+  switch (action.type) {
+    case 'INCREMENT': {
+      return {
+        count: state.count + 1,
+        loading: false,
+      };
+    }
+    case 'DECREMENT': {
+      return {
+        count: state.count - 1,
+        loading: false,
+      };
+    }
+    case 'ASYNC_LOADING': {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const sagaTodo = (state = { list: [], loading: false }, action) => {
+  const actionType = actionTypes.sagaTodo;
+  switch (action.type) {
+    case actionType.UPDATE_LIST: {
+      return {
+        loading: false,
+        list: action.payload.list,
+        count: action.payload.count,
+      };
+    }
+    case actionType.CHANGE_LOADING: {
+      return {
+        ...state,
+        loading: action.payload.loading,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 const reducer = combineReducers({
   val1: reducer1,
   val3: reducer3,
   val4: reducer4,
   reducer14,
+  sagaAnswer,
+  sagaCount,
+  sagaTodo,
 });
 
 export default reducer;

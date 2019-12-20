@@ -1,10 +1,23 @@
 /**
- * Created by zh on 2019/3/6.
+ * Created by zh on 2019/12/18.
  */
+.countButton {
+  margin: 20px 20px 0 0;
+}
+.demoContainer {
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid darkgray;
+}
+.question {
+  margin-top: 10px;
+}
 .imageContainer {
   width: 200px;
-  overflow: hidden;
+  height: 150px;
 }
-.image {
-  width: 100%
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }

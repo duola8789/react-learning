@@ -45,8 +45,8 @@ export default class Index extends Component {
              onChange={(e) => store.dispatch({
                type: ACTIONS.CHANGE,
                payload: e.target.value
-             })}
-      />
+             })}>
+      </Count>
     );
   }
 }

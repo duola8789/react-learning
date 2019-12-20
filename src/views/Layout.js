@@ -24,7 +24,7 @@ export default function(props) {
 
   return (
     <Layout className={styles.layout}>
-      <Sider trigger={null} breakpoint="lg" collapsedWidth="0" collapsed={isCollapsed} className={styles.sider}>
+      <Sider trigger={null} breakpoint="lg" collapsedWidth="0" collapsed={isCollapsed} width="250">
         <div className={styles.logo} onClick={() => go('/')} />
         <Menu />
       </Sider>
@@ -32,8 +32,8 @@ export default function(props) {
         <Header className={styles.header}>
           <Icon className={styles.trigger}
                 type={isCollapsed ? 'menu-unfold' : 'menu-fold'}
-                onClick={() => setIsCollapsed(!isCollapsed)}
-          />
+                onClick={() => setIsCollapsed(!isCollapsed)}>
+          </Icon>
           <Breadcrumb className={styles.breadcrumb}>
             <Breadcrumb.Item>{subMenuTitle}</Breadcrumb.Item>
             <Breadcrumb.Item>{itemTitle}</Breadcrumb.Item>
@@ -44,4 +44,3 @@ export default function(props) {
     </Layout>
   );
 }
-

@@ -45,8 +45,8 @@ const loadAndRefreshHOC = url => WrappedComponent => {
         <WrappedComponent contents={this.state.contents}
                           src={this.state.src}
                           refresh={() => this.refresh()}
-                          {...this.props}
-        />
+                          {...this.props}>
+        </WrappedComponent>
       );
     }
   };
