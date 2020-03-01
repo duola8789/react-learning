@@ -1,7 +1,7 @@
 /**
  * Created by zh on 2019/12/18.
  */
-import { call, put, takeEvery, all, takeLatest, take } from 'redux-saga/effects';
+import { call, put, takeEvery, all, takeLatest } from 'redux-saga/effects';
 import Request from '@/network/request';
 import { delay } from '@/utils';
 import todoFlows from '@/sagas/todoSaga';

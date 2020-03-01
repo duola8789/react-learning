@@ -4,9 +4,12 @@
 module.exports = {
   extends: [
     // 默认规则说明：https://alloyteam.github.io/eslint-config-alloy/
-    'eslint-config-alloy/react',
+    'alloy',
+    'alloy/react',
   ],
   env: {
+    node: true,
+    browser: true,
     jest: true,
   },
   settings: {
